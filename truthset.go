@@ -89,8 +89,6 @@ func main() {
 				file.WriteString("}\n")
 				os.Exit(0)
 			}
-			s := fmt.Sprintf("%s", record.Id)
-			fmt.Println(s)
 			file.WriteString(fmt.Sprintf("\"%s\": {\n", record.Id))
 			file.WriteString(fmt.Sprintf("\tDataSource: \"%s\",\n", record.DataSource))
 			file.WriteString(fmt.Sprintf("\tId:         \"%s\",\n", record.Id))
