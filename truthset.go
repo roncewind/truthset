@@ -10,28 +10,6 @@ import (
 	"github.com/roncewind/szrecord"
 )
 
-// ```
-// // A list of test records.
-//  var ReferenceRecords = map[string]struct {
-//  	DataSource string
-//  	Id         string
-//  	Data       string
-//  	LoadId     string
-//  }{
-//  	"2012": {
-//  		DataSource: "REFERENCE",
-//  		Id:         "2012",
-//  		Data:       `{"DATA_SOURCE": "REFERENCE", "RECORD_ID": "2012", "RECORD_TYPE": "ORGANIZATION", "PRIMARY_NAME_ORG": "Hajah Maimunah", "ADDR_TYPE": "REGISTERED", "ADDR_LINE1": "4 Hillview Rise", "ADDR_CITY": "SINGAPORE", "ADDR_POSTAL_CODE": "667979", "ADDR_COUNTRY": "Singapore", "REL_ANCHOR_KEY": "2011", "DATE": "2010", "STATUS": "Active", "CATEGORY": "Proprietorship"}`,
-//  		LoadId:     "TRUTHSET_REFERENCE_LOAD",
-//  	},
-//  	"2013": {
-//  		DataSource: "REFERENCE",
-//  		Id:         "2013",
-//  		Data:       `{"DATA_SOURCE": "REFERENCE", "RECORD_ID": "2013", "RECORD_TYPE": "PERSON", "PRIMARY_NAME_FULL": "Wang Jie", "DATE_OF_BIRTH": "1993-09-14", "REL_POINTER_KEY": "2011", "REL_POINTER_ROLE": "Owns 60%", "STATUS": "Current", "CATEGORY": "Owner"}`,
-//  		LoadId:     "TRUTHSET_REFERENCE_LOAD",
-//  	},
-// ```
-
 // ----------------------------------------------------------------------------
 func readJSONLResource(jsonURL string, recordchan chan *szrecord.Record) {
 	response, err := http.Get(jsonURL)
