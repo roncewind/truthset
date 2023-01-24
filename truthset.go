@@ -73,6 +73,10 @@ func main() {
 		panic(err)
 	}
 
+	// start reading the remote truth set.
+	go readJSONLResource("https://s3.amazonaws.com/public-read-access/TestDataSets/SenzingTruthSet/truth-set-3.0.0.jsonl", recordchan)
+
+	// write the file header
 	file.WriteString("// A list of test records.\n")
 	file.WriteString("var ReferenceRecords = map[string]struct {\n")
 	file.WriteString("\tDataSource string\n")
@@ -80,7 +84,8 @@ func main() {
 	file.WriteString("\tData       string\n")
 	file.WriteString("\tLoadId     string\n")
 	file.WriteString("}{\n")
-	go readJSONLResource("https://s3.amazonaws.com/public-read-access/TestDataSets/SenzingTruthSet/truth-set-3.0.0.jsonl", recordchan)
+
+	// loop over the records and write them
 	for {
 		select {
 		case record, open := <-recordchan:
