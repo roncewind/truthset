@@ -30,7 +30,7 @@ func readJSONLResource(jsonURL string, recordchan chan *szrecord.Record) {
 			record, err := szrecord.NewRecord(str)
 			if err != nil {
 				//something went wrong with a record.
-				fmt.Println(i, record.Id)
+				fmt.Println("Line", i, ": id =", record.Id)
 			} else {
 				recordchan <- record
 			}
